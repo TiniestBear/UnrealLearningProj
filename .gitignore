@@ -1,0 +1,9 @@
+#IGNORE LARGE FILES
+##############
+*Build
+*Binaries
+*DerivedDataCashe
+*Intermediate
+*Saved
+*StarterContent
+*.VC.db
