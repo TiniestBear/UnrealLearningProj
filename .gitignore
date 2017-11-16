@@ -7,4 +7,5 @@
 *Saved
 *StarterContent
 *.VC.db
+*.ipch
 *AutoPCH
