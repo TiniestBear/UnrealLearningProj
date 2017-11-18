@@ -19,13 +19,17 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// ...
+}
+
+void UOpenDoor::OpenDoor()
+{
 	FString objectName = GetOwner()->GetName();
 	FString objectPos = GetOwner()->GetTransform().GetLocation().ToString();
 	UE_LOG(LogTemp, Warning, TEXT("%s ready and on position %s!"), *objectName, *objectPos);
 	FRotator doorRotation = FRotator(0.0f, 45.0f, 0.0f);
 	GetOwner()->SetActorRotation(doorRotation);
-	// ...
-	
 }
 
 
@@ -33,7 +37,10 @@ void UOpenDoor::BeginPlay()
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
+	if(pressurePlate->IsOverlappingActor(actorThatOpens))
+	{ 
+		OpenDoor();
+	}
 	// ...
 }
 
